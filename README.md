@@ -1,1 +1,1 @@
-# Chest-Cancer-Prediction
+# Chest-Cancer-Classificaton
