@@ -6,7 +6,7 @@ STAGE_NAME = "DATA INGESTION STAGE"
 
 class DataIngestionTrainingPipeline:
     ''' Training pipeline for training data'''
-    def __ini__(self):
+    def __init__(self):
         pass
     
     
@@ -19,7 +19,7 @@ class DataIngestionTrainingPipeline:
     
 
 
-if __name__ == 'main:':
+if __name__ == '__main__':
     try:
         logger.info(f'>>>>>>> Stage {STAGE_NAME}<<<<<<<< Started Successfully')
         obj = DataIngestionTrainingPipeline()

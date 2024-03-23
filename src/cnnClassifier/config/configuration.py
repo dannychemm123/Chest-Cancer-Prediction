@@ -2,7 +2,7 @@
 #configuration manager
 from cnnClassifier.constants import *
 from cnnClassifier.utils.common import read_yaml, create_directory
-from cnnClassifier.entity.config_entity import DataIngestionConfig, PrepareBaseModelConfig,TrainingConfig
+from cnnClassifier.entity.config_entity import DataIngestionConfig, PrepareBaseModelConfig,TrainingConfig,EvaluationConfig
 import os
 
 class ConfigurationManager:
@@ -63,7 +63,7 @@ class ConfigurationManager:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
-        training_data = os.path.join(self.config.data_ingestion.unzip_dir,'Chest-CT Scan ImageS')
+        training_data = os.path.join(self.config.data_ingestion.unzip_dir,'Chest-CT Scan Images')
         create_directory([Path(training.root_dir)])
         
         training_config = TrainingConfig(
@@ -78,5 +78,19 @@ class ConfigurationManager:
 
         )
         return training_config
+    
+    def get_evaluation_config(self)->EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model = 'artifacts/training/model.h5',
+            training_data = 'artifacts/data_ingestion/Chest-CT Scan Images',
+            mlflow_uri = 'https://dagshub.com/dannychemm123/Chest-Cancer-Prediction.mlflow',
+            all_params = self.params,
+            params_image_size = self.params.IMAGE_SIZE,
+            params_batch_size = self.params.BATCH_SIZE
+            
+        )
+        return eval_config
+
+
 
         
