@@ -5,8 +5,7 @@ import tensorflow as tf
 import time
 from cnnClassifier.entity.config_entity import TrainingConfig
 from pathlib import Path
-
-
+import shutil
 
 class Training:
     def __init__(self, config: TrainingConfig):
@@ -86,3 +85,4 @@ class Training:
             path=self.config.trained_model_path,
             model=self.model
         )
+       

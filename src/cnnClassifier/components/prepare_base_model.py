@@ -4,6 +4,7 @@ from zipfile import ZipFile
 import tensorflow as tf
 from pathlib import Path
 from cnnClassifier.entity.config_entity import PrepareBaseModelConfig
+import shutil
 
 class PrepareBaseModel:
     """
@@ -96,3 +97,5 @@ class PrepareBaseModel:
             model (tf.keras.Model): The TensorFlow model to be saved.
         """
         model.save(path)
+
+    
